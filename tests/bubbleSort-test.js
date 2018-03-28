@@ -18,6 +18,13 @@ describe ('bubbleSort', function() {
     assert.equal(bubbleSorted, sorted);
   });
 
+  it('Should return an array', () => {
+    let unsortedArray = [1, 9, 4, 8, 4, 7];
+    let sortedArray = bubbleSort(unsortedArray);
+
+    assert.isArray(sortedArray)
+  })
+
   it('should arrange strings in an array in alphabetical order', function () {
     const array = ['the', 'fox', 'brown', 'quick', 'jumped'];
     const bubbleSorted = bubbleSort(array);
@@ -33,4 +40,14 @@ describe ('bubbleSort', function() {
 
     assert.equal(bubbleSorted, sorted);
   });
+  
+  it('should have the same length as original array', function () {
+    const array = [3, 4, 5, 6, 234, 65, 234, 6432, 53642, 6, 6547, 87, 5689, 78, 6709, 6790, 609]
+    const arrayLength = array.length;
+    const bubbleSorted = bubbleSort(array);
+    const bubbleLength = bubbleSorted.length;
+
+    assert.equal(bubbleLength, arrayLength);
+  });
+
 });

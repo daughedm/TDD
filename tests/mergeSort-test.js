@@ -6,31 +6,29 @@ const mergeSort = require('./../lib/mergeSort.js');
 
 describe('mergeSort', function () {
 
-  it('should be a function', function () {
-    assert.isFunction(mergeSort);
-  });
+  it('should be a function', () => {
+    assert.isFunction(mergeSort, true)
+  })
 
-  it('should arrange numbers in an array from lowest to highest.', function () {
-    const array = [3, 4, 5, 6, 234, 65, 234, 6432, 53642, 6, 6547, 87, 5689, 78, 6709, 6790, 609];
-    const mergeSorted = mergeSort(array);
-    const sorted = array.sort();
+  it('should sort an array of numbers', () => {
+    let array = [24, 21, 123, 344, 9, 5, 10]
+    let sortedArray = mergeSort(array);
 
-    assert.equal(mergeSorted, sorted);
-  });
+    console.log(array, sortedArray, array.sort((a, b) => a - b))
+    assert.deepEqual(sortedArray, [5, 9, 10, 21, 24, 123, 344])
+  })
 
-  it('should arrange strings in an array in alphabetical order', function () {
-    const array = ['the', 'fox', 'brown', 'quick', 'jumped'];
-    const mergeSorted = mergeSort(array);
-    const sorted = array.sort();
+  it('should sort a large array of numbers', () => {
+    let array = arrayGenerator(10000, 15000);
+    let sortedArray = mergeSort(array);
 
-    assert.equal(mergeSorted, sorted);
-  });
+    assert.deepEqual(sortedArray, array.sort((a, b) => a - b))
+  })
 
-  it('should arrange a large array of numbers', function () {
-    const array = arrayGenerator(500, 100);
-    const mergeSorted = mergeSort(array);
-    const sorted = array.sort();
+  it('should sort letters in strings', () => {
+    let array = ['a', 'y', 't', 'b', 'f', 'l'];
+    let sortedArray = mergeSort(array);
 
-    assert.equal(mergeSorted, sorted);
-  });
+    assert.deepEqual(sortedArray, ['a', 'b', 'f', 'l', 't', 'y'])
+  })
 });
