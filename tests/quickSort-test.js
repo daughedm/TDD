@@ -22,7 +22,7 @@ describe('quickSort', () => {
     let array = arrayGenerator(10000, 15000);
     let sortedArray = quickSort(array);
 
-    assert.deepEqual(sortedArray, array.sort((a, b) => a - b))
+    assert.deepEqual(sortedArray, array.sort((a, b) => a - b));
   })
 
   it('should sort letters in strings', () => {

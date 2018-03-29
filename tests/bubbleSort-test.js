@@ -34,7 +34,7 @@ describe ('bubbleSort', function() {
   });
 
   it('should arrange a large array of numbers', function () {
-    const array = arrayGenerator(500, 100);
+    const array = arrayGenerator(12000, 100);
     const bubbleSorted = bubbleSort(array);
     const sorted = array.sort();
 

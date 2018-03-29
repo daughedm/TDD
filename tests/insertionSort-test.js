@@ -10,6 +10,13 @@ describe('insertionSort', function () {
     assert.isFunction(insertionSort);
   });
 
+  it('Should return an array', () => {
+    let unsortedArray = [1, 9, 4, 8, 4, 7];
+    let sortedArray = insertionSort(unsortedArray);
+
+    assert.isArray(sortedArray);
+  })
+
   it('should arrange numbers in an array from lowest to highest.', function () {
     const array = [3, 4, 5, 6, 234, 65, 234, 6432, 53642, 6, 6547, 87, 5689, 78, 6709, 6790, 609];
     const insertionSorted = insertionSort(array);
